@@ -1,0 +1,45 @@
+- Definição do Projeto 
+
+nome: Todo App
+
+descrição: Aplicação para o gerenciamento de projetos e tarefas
+
+objetivo: Garantir a organização das tarefas para que não ocorra atrasos
+
+
+- Requisitos do Projeto
+
+entidades
+
+Projeto: 
+	Nome;
+	Descrição;
+	Data de criação;
+	Data de atualização
+	
+
+Tarefa:
+	Nome;
+	Descrição;
+	Status;
+	Observações;
+	Prazo;
+	Data de criação;
+	Data de atualização
+
+ações: 	Permitir o cadastro de Projetos;
+	Permitir o cadastro de Tarefas;
+	Permitir alterar e deletar Projetos e Tarefas
+
+
+Regras de negócio:
+
+	Não irá conter um sistema de login;
+	Não haverá conceito de usuário;
+	Toda tarefa deve pertencer a um Projeto
+
+
+Tecnologias utilizadas:
+
+	Java;
+	MySQL
