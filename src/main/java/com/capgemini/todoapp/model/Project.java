@@ -18,6 +18,10 @@ public class Project {
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
 	}
+	
+	public Project(){
+		this.createdAt = new Date();
+	}
 
 	public int getId() {
 		return id;
@@ -51,11 +55,11 @@ public class Project {
 		this.createdAt = createdAt;
 	}
 
-	public Date getIpdatedAt() {
+	public Date getUpdatedAt() {
 		return updatedAt;
 	}
 
-	public void setIpdatedAt(Date ipdatedAt) {
+	public void setUpdatedAt(Date ipdatedAt) {
 		this.updatedAt = ipdatedAt;
 	}
 
