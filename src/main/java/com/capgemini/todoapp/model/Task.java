@@ -12,7 +12,7 @@ public class Task {
 	private Date deadline;
 	private Date createdAt;
 	private Date updatedAt;
-	private int project_id;
+	private int projects_id;
 	
 	public Task(int id, String name, String description, boolean status, String notes, Date deadline, Date createdAt,
 			Date updatedAt, int project_id) {
@@ -25,11 +25,12 @@ public class Task {
 		this.deadline = deadline;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
-		this.project_id = project_id;
+		this.projects_id = project_id;
 	}
 
 	public Task(){
 		this.createdAt = new Date();
+                this.updatedAt = new Date();
 	}
 
 	public int getId() {
@@ -96,19 +97,19 @@ public class Task {
 		this.updatedAt = updatedAt;
 	}
 
-	public int getProject_id() {
-		return project_id;
+	public int getProjects_id() {
+		return projects_id;
 	}
 
-	public void setProject_id(int project_id) {
-		this.project_id = project_id;
+	public void setProjects_id(int project_id) {
+		this.projects_id = project_id;
 	}
 
 	@Override
 	public String toString() {
 		return "Task [id=" + id + ", name=" + name + ", description=" + description + ", status=" + status + ", notes="
 				+ notes + ", deadline=" + deadline + ", createdAt=" + createdAt + ", updatedAt=" + updatedAt
-				+ ", project_id=" + project_id + "]";
+				+ ", projects_id=" + projects_id + "]";
 	}
 	
 }
