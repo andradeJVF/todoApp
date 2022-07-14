@@ -8,6 +8,8 @@ import com.capgemini.todoapp.controller.ProjectController;
 import com.capgemini.todoapp.controller.TaskController;
 import com.capgemini.todoapp.model.Project;
 import com.capgemini.todoapp.model.Task;
+import com.capgemini.todoapp.util.ButtonColumnTasks;
+import com.capgemini.todoapp.util.DeadlineTasks;
 import com.capgemini.todoapp.util.TaskTableModel;
 import java.awt.Color;
 import java.awt.Font;
@@ -30,11 +32,11 @@ public class MainScreen extends javax.swing.JFrame {
     
     public MainScreen() {
         initComponents();
-        decorateTableTasks();
         
         initDataController();
         initComponentsModel();
         
+        decorateTableTasks();
     }
 
     /**
@@ -388,7 +390,6 @@ public class MainScreen extends javax.swing.JFrame {
                 Project project = (Project) projectsModel.get(projectIndex);
                 loadTasks(project.getId());
                 break;
-            default:
         }
     }//GEN-LAST:event_jTableTasksMouseClicked
 
@@ -462,6 +463,11 @@ public class MainScreen extends javax.swing.JFrame {
         jTableTasks.getTableHeader().setFont(new Font("Segoe UI", Font.BOLD, 14));
         jTableTasks.getTableHeader().setBackground(new Color(0, 102, 102));
         jTableTasks.getTableHeader().setForeground(new Color(255, 255, 255));
+        
+        jTableTasks.getColumnModel().getColumn(2).setCellRenderer(new DeadlineTasks());
+        
+        jTableTasks.getColumnModel().getColumn(4).setCellRenderer(new ButtonColumnTasks("edit"));
+        jTableTasks.getColumnModel().getColumn(5).setCellRenderer(new ButtonColumnTasks("delete"));
         
         //cria um sort para as colunas
         jTableTasks.setAutoCreateRowSorter(true);

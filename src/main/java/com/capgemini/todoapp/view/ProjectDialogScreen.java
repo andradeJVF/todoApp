@@ -144,17 +144,21 @@ public class ProjectDialogScreen extends javax.swing.JDialog {
     private void jHeaderIconSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jHeaderIconSaveMouseClicked
         
         try{
-            Project project = new Project();
-            project.setName(jTextFieldName.getText());
-            project.setDescription(jTextAreaDescription.getText());
-        
-            projectController.save(project);
-        
-            JOptionPane.showMessageDialog(rootPane, "Projeto criado com sucesso!");
+            if(!jTextFieldName.getText().equals("")){
+                Project project = new Project();
+                project.setName(jTextFieldName.getText());
+                project.setDescription(jTextAreaDescription.getText());
+                projectController.save(project);
+                JOptionPane.showMessageDialog(rootPane, "Projeto criado com sucesso!");
+                this.dispose();
+                
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Erro ao criar projeto, revise o campo 'Nome'");
+            }
         } catch (Exception e){
             JOptionPane.showMessageDialog(rootPane, e.getMessage());
         }
-        this.dispose();
+        
     }//GEN-LAST:event_jHeaderIconSaveMouseClicked
 
     /**

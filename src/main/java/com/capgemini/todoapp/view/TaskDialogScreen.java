@@ -116,7 +116,7 @@ public class TaskDialogScreen extends javax.swing.JDialog {
         jTextAreaNotes.setRows(5);
         jScrollPane2.setViewportView(jTextAreaNotes);
 
-        jFormattedTextFieldDeadline.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(java.text.DateFormat.getDateInstance(java.text.DateFormat.SHORT))));
+        jFormattedTextFieldDeadline.setFormatterFactory(new javax.swing.text.DefaultFormatterFactory(new javax.swing.text.DateFormatter(new java.text.SimpleDateFormat("dd/MM/yyyy"))));
         jFormattedTextFieldDeadline.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jFormattedTextFieldDeadlineActionPerformed(evt);
@@ -195,26 +195,32 @@ public class TaskDialogScreen extends javax.swing.JDialog {
     private void jTasksSaveIconMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTasksSaveIconMouseClicked
         
         try{
-            Task task = new Task();
-            task.setProjects_id(project.getId());
+            if(!jTextFieldName.getText().isEmpty() || !jFormattedTextFieldDeadline.getText().isEmpty()){
+                Task task = new Task();
+                task.setProjects_id(project.getId());
             
-            task.setName(jTextFieldName.getText());
-            task.setDescription(jTextAreaDescription.getText());
-            task.setNotes(jTextAreaNotes.getText());
-            task.setStatus(false);
+                task.setName(jTextFieldName.getText());
+                task.setDescription(jTextAreaDescription.getText());
+                task.setNotes(jTextAreaNotes.getText());
+                task.setStatus(false);
             
-            SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
-            Date deadline = null;
-            deadline = dateFormat.parse(jFormattedTextFieldDeadline.getText());
-            task.setDeadline(deadline);
+                SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+                Date deadline = null;
+                deadline = dateFormat.parse(jFormattedTextFieldDeadline.getText());
+                task.setDeadline(deadline);
             
-            taskController.save(task);
-            JOptionPane.showMessageDialog(rootPane, "Tarefa criada com sucesso!");
+                taskController.save(task);
+                JOptionPane.showMessageDialog(rootPane, "Tarefa criada com sucesso!");
+                this.dispose();
+                
+            } else {
+                JOptionPane.showMessageDialog(rootPane, "Erro ao criar tarefa! Revise os campos 'Nome' e 'Prazo'");
+            }
             
         } catch (Exception e){
             JOptionPane.showMessageDialog(rootPane, e.getMessage());
         }
-        this.dispose();
+        
     }//GEN-LAST:event_jTasksSaveIconMouseClicked
 
     /**
