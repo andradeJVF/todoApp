@@ -97,7 +97,7 @@ public class MainScreen extends javax.swing.JFrame {
         });
         jTableTasks.setGridColor(new java.awt.Color(255, 255, 255));
         jTableTasks.setRowHeight(50);
-        jTableTasks.setSelectionBackground(new java.awt.Color(0, 153, 102));
+        jTableTasks.setSelectionBackground(new java.awt.Color(204, 255, 204));
         jTableTasks.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jTableTasks.setShowHorizontalLines(true);
         jTableTasks.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -232,7 +232,7 @@ public class MainScreen extends javax.swing.JFrame {
         jProjectsList.setFont(new java.awt.Font("Segoe UI", 1, 16)); // NOI18N
         jProjectsList.setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
         jProjectsList.setFixedCellHeight(50);
-        jProjectsList.setSelectionBackground(new java.awt.Color(0, 102, 102));
+        jProjectsList.setSelectionBackground(new java.awt.Color(204, 255, 204));
         jProjectsList.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jProjectsListMouseClicked(evt);
